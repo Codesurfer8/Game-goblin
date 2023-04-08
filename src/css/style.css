@@ -7,6 +7,7 @@
 
 .picture {
     cursor: url('../img/hammer_icon-icons.com_71180.png'), pointer;
+    src: url(../img/goblin.png);
 }
 
 .board-container {
