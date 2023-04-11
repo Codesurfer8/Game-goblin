@@ -1,4 +1,5 @@
 import Board from './board';
+import goblin from '../img/goblin.png';
 
 const board = new Board(4);
 const fieldBoard = board.createField();
@@ -10,7 +11,7 @@ function randomIndex(min, max) {
 
 function createImg() {
   const img = document.createElement('img');
-  img.src = '../src/img/goblin.png';
+  img.src = goblin;
   img.classList.add('picture');
   return img;
 }
