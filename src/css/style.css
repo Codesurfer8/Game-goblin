@@ -1,13 +1,25 @@
+.titel {
+    display: block;
+    text-align: center;
+    padding-right: 220px;
+    margin-bottom: 40px;
+    font-size: 24px;
+    font-weight: bold;
+    font-family: monospace;
+    text-transform: uppercase;
+}
+
 .el {
     height: 120px;
     width: 120px;
-    border: 1px solid black;
-    border-radius: 50%;
+    background-image: url(../img/doorhole.png);
+    background-repeat: no-repeat;
+    background-position: center;
 }
 
 .picture {
     cursor: url('../img/hammer_icon-icons.com_71180.png'), pointer;
-    src: url(../img/goblin.png);
+    src: url('../img/goblin.png');
 }
 
 .board-container {
@@ -16,10 +28,13 @@
     gap: 40px;
 }
 
+.board {
+    background-color: aqua;
+}
+
 .score {
     width: 200px;
     height: 180px;
-    border: 1px solid green;
 }
 
 .hit {
@@ -31,5 +46,13 @@
     font-size: 24px;
     text-transform: uppercase;
     font-family: monospace;
+}
+
+.luck {
+    color: green;
+}
+
+.fail {
+    color: red;
 }
 

@@ -7,6 +7,8 @@
        "jest": true
     },
     "rules": {
+      "no-alert": 0,
+      "no-loop-func": 0,
       "no-proto": "error",
       "no-plusplus": 0,
       "no-unused-vars": "off",

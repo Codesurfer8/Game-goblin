@@ -24,13 +24,44 @@ setInterval(() => {
     items[index].textContent = '';
   }
   items[index].appendChild(picture);
-}, 800);
+}, 600);
 
-let count = 0;
+let countHit = 0;
+let countFail = 0;
 
-picture.addEventListener(
-  'click',
-  () => {
-    count++;
-  },
-);
+const luckScore = document.querySelector('.luck');
+const failScore = document.querySelector('.fail');
+
+for (let i = 0; i < items.length; i++) {
+  items[i].addEventListener(
+    'click',
+    (ev) => {
+      if (ev.target === picture) {
+        countHit++;
+        luckScore.textContent = countHit;
+        ev.target.remove();
+      }
+
+      if (ev.target !== picture) {
+        countFail++;
+        failScore.textContent = countFail;
+      }
+
+      if (countHit === 3) {
+        alert('You win !');
+        luckScore.textContent = 0;
+        countHit = 0;
+        failScore.textContent = 0;
+        countFail = 0;
+      }
+
+      if (countFail === 3) {
+        alert('You lose !');
+        luckScore.textContent = 0;
+        countHit = 0;
+        failScore.textContent = 0;
+        countFail = 0;
+      }
+    },
+  );
+}
