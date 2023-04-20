@@ -5,32 +5,30 @@ const board = new Board(4);
 const fieldBoard = board.createField();
 const items = Array.from(fieldBoard.querySelectorAll('.el'));
 
-function randomIndex(min, max) {
-  return Math.floor(Math.random() * (max - min + 1)) + min;
-}
-
-function createImg() {
-  const img = document.createElement('img');
-  img.src = goblin;
-  img.classList.add('picture');
-  return img;
-}
-
-const picture = createImg();
+const picture = document.createElement('img');
+picture.src = goblin;
+picture.classList.add('picture');
 
 setInterval(() => {
-  const index = randomIndex(0, 15);
+  const index = Math.floor(Math.random() * (15 - 0 + 1)) + 0;
   if (items[index].children) {
     items[index].textContent = '';
   }
   items[index].appendChild(picture);
-}, 600);
+}, 1000);
 
 let countHit = 0;
 let countFail = 0;
 
 const luckScore = document.querySelector('.luck');
 const failScore = document.querySelector('.fail');
+
+function zeroingOut() {
+  luckScore.textContent = 0;
+  countHit = 0;
+  failScore.textContent = 0;
+  countFail = 0;
+}
 
 for (let i = 0; i < items.length; i++) {
   items[i].addEventListener(
@@ -47,20 +45,14 @@ for (let i = 0; i < items.length; i++) {
         failScore.textContent = countFail;
       }
 
-      if (countHit === 3) {
+      if (countHit === 5) {
         alert('You win !');
-        luckScore.textContent = 0;
-        countHit = 0;
-        failScore.textContent = 0;
-        countFail = 0;
+        zeroingOut();
       }
 
-      if (countFail === 3) {
+      if (countFail === 5) {
         alert('You lose !');
-        luckScore.textContent = 0;
-        countHit = 0;
-        failScore.textContent = 0;
-        countFail = 0;
+        zeroingOut();
       }
     },
   );

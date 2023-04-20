@@ -26,6 +26,7 @@
     display: flex;
     justify-content: center;
     gap: 40px;
+    position: relative;
 }
 
 .board {
@@ -55,4 +56,3 @@
 .fail {
     color: red;
 }
-
